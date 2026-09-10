@@ -55,7 +55,7 @@ The second line contains $n$ space-separated integers ($a[1], a[2], \ldots, a[n]
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-10T07:07:53.274Z  
+**Submitted:** 2026-09-10T07:10:14.168Z  
 
 ```cpp
 #include <bits/stdc++.h>
