@@ -46,25 +46,87 @@ The second line contains a single string $path$, of $steps$ characters that desc
 ## Solution
 
 **Language:** C++  
-**Runtime:** O(n)  
-**Memory:** O(1)  
-**Submitted:** 2026-09-11T04:43:50.855Z  
+**Runtime:** N/A  
+**Memory:** N/A  
+**Submitted:** 2026-09-13T06:19:26.840Z  
 
 ```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string &);
+string rtrim(const string &);
+
+/*
+ * Complete the 'countingValleys' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts following parameters:
+ *  1. INTEGER steps
+ *  2. STRING path
+ */
 
 int countingValleys(int steps, string path) {
     int sealevel=0;
     int valley=0;
-    for(char step:path){
-        if(step=='U')
+    
+    for(char s:path){
+        if( s=='U'){
             sealevel++;
-        else if (step=='D')
+        }
+        else if(s=='D'){
             sealevel--;
-        if(step=='U'&&sealevel==0)
+        }
+        if(s=='U'&&sealevel==0){
             valley++;
+        }
     }
     return valley;
 
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string steps_temp;
+    getline(cin, steps_temp);
+
+    int steps = stoi(ltrim(rtrim(steps_temp)));
+
+    string path;
+    getline(cin, path);
+
+    int result = countingValleys(steps, path);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end()
+    );
+
+    return s;
 }
 
 ```
