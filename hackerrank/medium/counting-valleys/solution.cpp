@@ -11,19 +11,23 @@ string rtrim(const string &);
  * The function is expected to return an INTEGER.
  * The function accepts following parameters:
  *  1. INTEGER steps
- *  2. STRING patht
+ *  2. STRING path
  */
 
 int countingValleys(int steps, string path) {
     int sealevel=0;
     int valley=0;
-    for(char step:path){
-        if(step=='U')
+    
+    for(char s:path){
+        if( s=='U'){
             sealevel++;
-        else if (step=='D')
+        }
+        else if(s=='D'){
             sealevel--;
-        if(step=='U'&&sealevel==0)
+        }
+        if(s=='U'&&sealevel==0){
             valley++;
+        }
     }
     return valley;
 
